@@ -1,11 +1,11 @@
 version: "3"
 services:
   client:
-    image: "dockerdev011/multi-client"
+    image: "dockerdev011/multi-client-01"
     mem_limit: 128m
     hostname: client
   server:
-    image: "dockerdev011/multi-server"
+    image: "dockerdev011/multi-server-01"
     mem_limit: 128m
     hostname: api
     environment:
@@ -17,14 +17,14 @@ services:
       - PGPASSWORD=$PGPASSWORD
       - PGPORT=$PGPORT
   worker:
-    image: "dockerdev011/multi-worker"
+    image: "dockerdev011/multi-worker-01"
     mem_limit: 128m
     hostname: worker
     environment:
       - REDIS_HOST=$REDIS_HOST
       - REDIS_PORT=$REDIS_PORT
   nginx:
-    image: "dockerdev011/multi-nginx"
+    image: "dockerdev011/multi-nginx-01"
     mem_limit: 128m
     hostname: nginx
     ports:
