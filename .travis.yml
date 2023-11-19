@@ -10,18 +10,18 @@ before_install:
 #  - docker run -e CI=true dockerdev011/react-test npm test
 
 after_success: 
-  - docker build -t dockerdev011/multi-client ./client
-  - docker build -t dockerdev011/multi-nginx ./nginx
-  - docker build -t dockerdev011/multi-server ./server
-  - docker build -t dockerdev011/multi-worker ./worker 
+  - docker build -t dockerdev011/multi-client-01 ./client
+  - docker build -t dockerdev011/multi-nginx-01 ./nginx
+  - docker build -t dockerdev011/multi-server-01 ./server
+  - docker build -t dockerdev011/multi-worker-01 ./worker 
   # Log in to the doker CLI
   - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_ID" --password-stdin
   # Take those images and push them to docker hub
 
-  - docker push dockerdev011/multi-client
-  - docker push dockerdev011/multi-nginx
-  - docker push dockerdev011/multi-server
-  - docker push dockerdev011/multi-worker
+  - docker push dockerdev011/multi-client-01
+  - docker push dockerdev011/multi-nginx-01
+  - docker push dockerdev011/multi-server-01
+  - docker push dockerdev011/multi-worker-01
 
 deploy:
   provider: elasticbeanstalk
